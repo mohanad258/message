@@ -1,5 +1,6 @@
 <?php
 include_once('DB.php'); // تضمين ملف الاتصال بقاعدة البيانات
+echo $name1.''. $password ;
 
 if (isset($_POST['save'])) {
     // استلام المدخلات من النموذج
@@ -7,7 +8,6 @@ if (isset($_POST['save'])) {
     $password = $_POST['password'];
     $password_sha1 = sha1($password); // تشفير كلمة المرور باستخدام SHA1
 
-   echo $name1.''. $password ;
     // استعلام للتحقق من وجود المستخدم بناءً على كلمة المرور
     $q1 = "SELECT * FROM users WHERE password='$password_sha1'";
     $r1 = $con->query($q1); // تنفيذ الاستعلام
